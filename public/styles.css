@@ -1,0 +1,104 @@
+body {
+    background-color: rgb(221, 227, 223);
+    color: #fff;
+}
+
+#index-background {
+    background-image: url(img/annie-spratt-209137.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+
+.row-background {
+    background-image: url(img/paulo-morales-1975.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+
+nav {
+    background-color: rgb(212, 225, 208);
+    padding-left: 2%;
+}
+
+.active,
+a,
+i,
+p,
+input,
+button {
+    color: gray;
+}
+
+.page-header {
+    background-color: lightblue;
+    padding-left: 2%;
+}
+
+h1,
+h6,
+h4 {
+    padding-top: 1%;
+    color: #fff;
+}
+
+#newGarden {
+    background-color: aliceblue;
+    height: 25%;
+    width: 25%;
+    color: black
+}
+
+#column {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1% 1% 0 1%;
+    color: white;
+    background-color: lightblue;
+    opacity: .7;
+}
+
+#myRow {
+    display: block;
+    align-items: center;
+    padding-top: 2%;
+}
+
+.imgQuote1 {
+    /*float:*/
+    height: auto;
+    width: auto;
+    max-width: 5%;
+    max-height: 5%;
+    margin-bottom: 1%;
+}
+
+.quote1,
+.profileQuote {
+    margin: 1% 2% 1% 2%;
+}
+
+#gardenParent {
+    background-image: url(img/agence-producteurs-locaux-damien-kuhn-97729.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+
+.container-fluid3 {
+    background-image: url(img/paulo-morales-1975.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+
+.formProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#divForm {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}

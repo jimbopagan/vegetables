@@ -1,17 +1,36 @@
 <!DOCTYPE html>
-<html lang="">
+<html ng-app='myApp'>
+
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-<!--    <link rel="stylesheet" href="">-->
+    <link rel="stylesheet" href='font-awesome-4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel='stylesheet' href='styles.css' />
+    <title>My Angular App</title>
 </head>
 
 <body>
+    <div class="page-header">
+        <h1>GROW SHARE<small><span class='glyphicon glyphicon-leaf'></span></small><small><i class="fa fa-share-alt-square" aria-hidden="true"></i></small></h1>
+        <h6>GROW:[Share, Trade]</h6>
+    </div>
+    <nav>
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href='/#/home'>Home</a></li>
+            <li role="presentation"><a href='/#/profile'>Profile</a></li>
+            <li role="presentation"><a href='/#/gardens'>Gardens</a></li>
+        </ul>
+    </nav>
+    <div class='container'>
+        <ng-view></ng-view>
+    </div>
 
-<h1>
-    Hello
-</h1>
-<!--    <script src=""></script>-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+    <script src='app.js'></script>
+    <script src='gardens.js'></script>
+    <script src='service.js'></script>
 </body>
+
 </html>

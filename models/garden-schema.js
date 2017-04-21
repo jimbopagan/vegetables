@@ -6,11 +6,24 @@ var gardenSchema = new mongoose.Schema({
         require: true
     },
     description: String,
-    vegetables: String,
-    comments: [String],
-    //long, lat
+    vegetables: [{
+        name: {
+            type: String,
+            required: true
+        },
+        description: String,
+        photos: [String],
+        readyOn: {
+            type: Date,
+            default: Date.now,
+            required: true
+        }
+}],
     location: {
-        city: String
+        address: String,
+        city: String,
+        state: String,
+        zipCode: Number
     }
 
 });

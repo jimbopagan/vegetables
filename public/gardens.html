@@ -1,0 +1,39 @@
+<div id='gardenParent' class='container-fluid'>
+    <div class='col-xs-12'>
+        <div class='row'>
+            <center>
+                <h1 >Local Gardens</h1>
+            </center>
+            <div id='column' class='col-xs-12' ng-repeat='garden in gardens'>
+                <p>{{garden.name}}</p>
+                <p>{{garden.description}}</p>
+                <div ng-repeat='vegetable in garden.vegetables'>
+                    <p>{{vegetable.name}}</p>
+                    <p>{{vegetable.description}}</p>
+                    <img ng-repeat='photo in vegetable.photos' ng-src='photo'>
+                    <p>{{vegetable.readyOn}}</p>
+                </div>
+                <p>{{garden.location.address}}</p>
+                <p>{{garden.location.city}}</p>
+                <p>{{garden.location.state}}</p>
+                <p>{{garden.location.zipCode}}</p>
+            </div>
+        </div>
+        <div>
+            <div id='newGarden'>
+                <h3>Add new Garden:</h3>
+                <br><input placeholder='name' ng-model='newGarden.name'>
+                <br><input placeholder='description' ng-model='newGarden.description'>
+                <br><input placeholder='vegetable name' ng-model='newGarden.vegetables.name'>
+                <br><input placeholder='vegetable description' ng-model='newGarden.vegetables.descrition'>
+                <br><input placeholder='vegetables' ng-model='newGarden.vegetables.photos'>
+                <br><input placeholder='vegetables' ng-model='newGarden.vegetables.readyOn'>
+                <br><input placeholder='address' ng-model='newGarden.location.address'>
+                <br><input placeholder='city' ng-model='newGarden.location.city'>
+                <br><input placeholder='state' ng-model='newGarden.location.state'>
+                <br><input placeholder='zipCode' ng-model='newGarden.location.zipCode'>
+                <br><button class="btn btn-primary btn-lg" ng-click='addGarden(newGarden)'>Add Garden</button>
+            </div>
+        </div>
+    </div>
+</div>
