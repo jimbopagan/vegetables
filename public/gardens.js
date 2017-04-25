@@ -14,7 +14,7 @@ app.controller('secondController', ['$scope', 'gardenService', function ($scope,
 }])
 
 app.controller('thirdController', ['$scope', 'gardenService', function ($scope, gardenService) {
-
+   
     $scope.gardens = [];
     $scope.myFunc = function () {
         gardenService.myGarden().then(function (res) {
@@ -33,4 +33,34 @@ app.controller('thirdController', ['$scope', 'gardenService', function ($scope, 
             
         })
     }
+    $scope.deleteGarden = function(id, index){
+        gardenService.deleteGardenService(id).then(function(res){
+            if(res.data){
+                console.log('garden deleted');
+                alert('garden deleted');
+                $scope.gardens.splice(index, 1);
+            }
+        })
+    }
+    
+    $scope.editGardenFunc = function(obj, garden){
+        alert(obj);
+        console.log(obj);
+        console.log(garden);
+        gardenService.editGardenService(obj, garden).then(function(res){
+            if(res.data){
+                console.log('garden edited');
+                alert('garden edited');
+                $scope.myFunc();
+               
+            }
+        })
+    }
+    $scope.localFunc = function(zip){
+    gardenService.myGarden(zip).then(function (res) {
+            console.log(res.data);
+            $scope.gardens = res.data;
+        })
+}
 }])
+

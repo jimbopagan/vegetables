@@ -1,37 +1,53 @@
-<div id='gardenParent' class='container-fluid'>
-    <div class='col-xs-12'>
-        <div class='row'>
-            <center>
-                <h1 >Local Gardens</h1>
-            </center>
-            <div id='column' class='col-xs-12' ng-repeat='garden in gardens'>
-                <p>{{garden.name}}</p>
-                <p>{{garden.description}}</p>
-                <div ng-repeat='vegetable in garden.vegetables'>
-                    <p>{{vegetable.name}}</p>
-                    <p>{{vegetable.description}}</p>
-                    <img ng-repeat='photo in vegetable.photos' ng-src='photo'>
-                    <p>{{vegetable.readyOn}}</p>
+<div id='garden1' class='container-fluid fullWidthRow'>
+    <div id='garden2' class='row fullWidthRow'>
+        <div id='garden3' class='col-xs-12'>
+            <div id='output'>
+                <div class="row">
+                    <center>
+                        <h1>Local Gardens</h1>
+                        <input placeholder='zip code' type='number' ng-model='search.local'>
+                        <button ng-click='localFunc(search)'>Press for Gardens to Zip Code</button>
+                    </center>
                 </div>
-                <p>{{garden.location.address}}</p>
-                <p>{{garden.location.city}}</p>
-                <p>{{garden.location.state}}</p>
-                <p>{{garden.location.zipCode}}</p>
+                <div id='garden4' class="row">
+                    <div ng-repeat='garden in gardens track by $index'>
+                        <div class='col-xs-3 garden'>
+                            <center>
+                                <p class='letters'>{{garden.name}}</p>
+                            </center>
+                           
+                                <p>Vegetables Available:{{garden.name}}</p>
+                                <img class='addedImage' ng-src='{{garden.url}}'>
+                                <p>Vegetable Ready:{{garden.readyOn | date : "MM.dd.y"}}</p>
+                            
+                            <p>Zip Code:{{garden.zipCode}}</p>
+                            <button ng-click='deleteGarden(garden._id, $index)'>Delete Garden</button>
+                        <div ng-show='edit' id='editGarden'>
+                            <h3>Add new Garden:</h3>
+                            <br><input type='text' placeholder='name' ng-model='editGarden.name'>
+                            <br><input type='text' placeholder='vegetable name' ng-model='editGarden.vegetables'>
+                            <br><input type='url' placeholder='garden photo' ng-model='editGarden.url'>
+                            <br><input type='date' placeholder='date vegetable is ready' ng-model='editGarden.readyOn'>
+                            <br><input type='number' placeholder='zipCode' ng-model='editGarden.zipCode'>
+                            <br><button ng-click='editGardenFunc(editGarden, garden); edit = false'>Edit Garden</button>
+                        </div>
+                        <button ng-hide='edit' ng-click='edit = true'>Edit Garden</button>
+
+                        </div>
+                        
+                    </div>
+                </div>
             </div>
+
         </div>
-        <div>
+        <div id='input' class='col-xs-12'>
             <div id='newGarden'>
                 <h3>Add new Garden:</h3>
-                <br><input placeholder='name' ng-model='newGarden.name'>
-                <br><input placeholder='description' ng-model='newGarden.description'>
-                <br><input placeholder='vegetable name' ng-model='newGarden.vegetables.name'>
-                <br><input placeholder='vegetable description' ng-model='newGarden.vegetables.descrition'>
-                <br><input placeholder='vegetables' ng-model='newGarden.vegetables.photos'>
-                <br><input placeholder='vegetables' ng-model='newGarden.vegetables.readyOn'>
-                <br><input placeholder='address' ng-model='newGarden.location.address'>
-                <br><input placeholder='city' ng-model='newGarden.location.city'>
-                <br><input placeholder='state' ng-model='newGarden.location.state'>
-                <br><input placeholder='zipCode' ng-model='newGarden.location.zipCode'>
+                <br><input type='text' placeholder='name' ng-model='newGarden.name'>
+                <br><input type='text' placeholder='vegetable name' ng-model='newGarden.vegetables'>
+                <br><input type='url' placeholder='garden photo' ng-model='newGarden.url'>
+                <br><input type='date' placeholder='date vegetable is ready' ng-model='newGarden.readyOn'>
+                <br><input type='number' placeholder='zipCode' ng-model='newGarden.zipCode'>
                 <br><button class="btn btn-primary btn-lg" ng-click='addGarden(newGarden)'>Add Garden</button>
             </div>
         </div>
